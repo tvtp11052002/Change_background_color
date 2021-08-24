@@ -24,6 +24,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  int i=0;
   List<Color> colorslist = [
     Colors.blue,
     Colors.red,
@@ -34,13 +35,15 @@ class _HomepageState extends State<Homepage> {
   Color color_now = Colors.white;
   void changecolor() {
     setState(() {
-      int i = Random().nextInt(colorslist.length);
       color_now = colorslist[i];
-      if (i == colorslist.length) {
+      i++;
+      if (i==colorslist.length){
         color_now = colorslist[0];
+        i=1;
       }
     });
   }
+  
 
   @override
   Widget build(BuildContext context) {
